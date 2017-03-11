@@ -1,36 +1,69 @@
-<h1>Ejemplo de coneccion a OMEKA</h1>
+<h1>Conectándose al OMEKA 'MaGAYzines'</h1>
 
-<!-- recorre todos los campos de los items para extraer el nombre -->
-{{#each item.element_texts}}
-    <h1>{{this.text}}</h1>
-{{/each}}
+<h2>¡Conoce todas las revistas!</h2>
 
-<h2>Colección</h2>
-<!-- muestra la información de las colecciones -->
-{{#each collection.element_texts}}
-    <h1>{{this.text}}</h1>
-{{/each}}
+<!--
+NOTAS DE TICO:
 
-<!-- muestra la imágen en miniatura del elemento -->
-<img src="{{files.0.file_urls.thumbnail}}" alt="">
+1. No pude hacer que cada elemento se pudiera ver por aparte con su respectiva foto. ¿Se debe a como tengo configurado el Omeka?
+2. No pude traer otras imágenes además de la del item 'Ventana Gay' aun cuando tengo los ID de cada elemento con vista al público.
+3. Sería chévere una explicación de Handlebars para poder entender bien cómo se hace el llamado a cada elemento.
 
+Fue duro pero muy interesante el ejercicio. Gracias. :)
+-->
 
-<h1>TODOS LOS ITEMS</h1>
 <!-- recorre todos los elementos -->
 {{#each items}}
   <!-- recorre la lista de textos -->
   {{#each this.element_texts}}
     <!-- si el texto es 'Title' -->
       {{#ifeq this.element.name 'Title'}}
-        <h4>{{this.text}}</h4>
+        <h3>{{this.text}}</h3>
       {{/ifeq}}
     <!-- si el texto es 'Subject' -->
       {{#ifeq this.element.name 'Subject'}}
-        <p>subject: {{this.text}}</p>
+        <h4>Temática:</h4>
+        <p>{{this.text}}</p>
       {{/ifeq}}
     <!-- si el texto es 'Description' -->
       {{#ifeq this.element.name 'Description'}}
-        <p>des: {{this.text}}</p>
+        <h4>Descripción:</h4>
+        <p>{{this.text}}</p>
+      {{/ifeq}}
+      {{#ifeq this.element.name 'Date'}}
+        <h4>Fecha:</h4>
+        <p>{{this.text}}</p>
       {{/ifeq}}
   {{/each}}
 {{/each}}
+
+<hr>
+
+<!-- muestra la imágen en miniatura del elemento -->
+<img src="{{files.0.file_urls.fullsize}}" alt="" width="100%">
+<br>
+<!-- recorre todos los elementos -->
+{{#each files}}
+  <!-- recorre la lista de textos -->
+  {{#each this.element_texts}}
+        <span>{{this.text}}</span>
+  {{/each}}
+{{/each}}
+
+<hr>
+
+<p><a href="http://www.issuu.com/ticomorales/docs/magayzinesbook" target="_blank">¿Qué tal un libro sobre MaGAYzines?</a></p>
+
+
+<!-- recorre todos los campos de los items para extraer el nombre
+{{#each item.element_texts}}
+    <p>{{this.text}}</p>
+{{/each}}
+
+<h2>Colecciones</h2>
+muestra la información de las colecciones
+{{#each collection.element_texts}}
+      {{#ifeq collection.element.name 'Creator'}}
+      <p>{{this.text}}</p>
+      {{/ifeq}}
+{{/each}}-->
