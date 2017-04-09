@@ -29,9 +29,11 @@ La actividad a realizar durante esta semana es la creación de una nueva ruta qu
 
 |  Criterio  | %      |  Calificación |
 |----------|:-------------:|------:|
-| Redacción, ortografía, citación de fuentes |  40% | - |
-| Suficiencia en la implementación técnica nodejs, express, HTML |    60%   | - |
-| ** Nota Final** | | -|
+| Redacción, ortografía, citación de fuentes |  40% | 4.0 |
+| Suficiencia en la implementación técnica nodejs, express, HTML |    60%   | 4.5 |
+| ** Nota Final** | | 4.3|
+
+Muy buena adaptación de la actividad, buena integración de estilos gráficos en los resultados entregados en el cliente.
 
 ## Recursos
 
